@@ -1,5 +1,6 @@
 package org.lessons.java;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class TrainTicket {
@@ -32,7 +33,7 @@ public class TrainTicket {
         age = Integer.parseInt(scan.nextLine());
 
         double totalPrice = rate * km;
-
+        DecimalFormat decimalFormat = new DecimalFormat("##.##");
 
         if(age < 18){
             totalPrice-= totalPrice * underAgeDiscount / 100;
@@ -42,7 +43,8 @@ public class TrainTicket {
         }
 
         //Final output
-        System.out.println("You are " + age + " years old and you want to travel " + km + "Km. The price of your " +
-                "ticket is " + totalPrice + " Euros");
+        System.out.println("You are " + age + " years old and you want to travel " + km + " Km. The price of your " +
+                "ticket is " +
+                 decimalFormat.format(totalPrice) + " Euros");
     }
 }
